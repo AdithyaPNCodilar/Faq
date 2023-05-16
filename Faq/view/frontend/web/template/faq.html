@@ -1,3 +1,9 @@
-<div class="faq-wrapper" data-bind="foreach: getFaqList">
-    <div class="faq-item" data-bind="text: question"></div>
+<div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <ul data-bind="foreach: faqs">
+        <li>
+            <h3 data-bind="text: question"></h3>
+            <p data-bind="text: answer"></p>
+        </li>
+    </ul>
 </div>

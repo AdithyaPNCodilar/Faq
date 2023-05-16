@@ -27,13 +27,6 @@ class FaqForm extends Template
 
     return null;
     }
-
-
-    // public function getCustomerId()
-    // {
-    //     return $this->customerSession->getCustomerId();
-    // }
-
         /**
      * Get Faq product id
      *

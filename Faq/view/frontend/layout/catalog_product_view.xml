@@ -6,9 +6,8 @@
             <block class="Magento\Catalog\Block\Product\View" name="faq_form" template="Codilar_Faq::product/faq_form.phtml"/>
         </referenceContainer>
         <move element="faq_form" destination="faq_form_container" />
-        
-        <referenceBlock name="product.info.details">
-            <block class="Magento\Catalog\Block\Product\View" name="product.faq" template="Codilar_Faq::Faq.html" />
+        <referenceBlock name="content">
+                <block class="Codilar\Faq\Block\Faq" name="faq" template="Codilar_Faq::faq.phtml"/>
         </referenceBlock>
     </body>
 </page>
@@ -21,3 +20,4 @@
         </referenceContainer>
     </body>
 </page> -->
+<!-- <block class="Magento\Framework\View\Element\Template" name="faq" template="Codilar_Faq::faq.phtml"/> -->
