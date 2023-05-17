@@ -7,11 +7,33 @@ use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Codilar\Faq\Model\ResourceModel\Faq\CollectionFactory;
 
+/**
+ * Class Getfaq
+ *
+ * This class represents a controller action for retrieving FAQs.
+ *
+ * @package Codilar\Faq\Controller\Index
+ */
+
 class Getfaq extends Action
 {
+    /**
+     * @var JsonFactory
+     */
     protected $jsonFactory;
+
+    /**
+     * @var CollectionFactory
+     */
     protected $faqCollectionFactory;
 
+    /**
+     * Getfaq constructor.
+     *
+     * @param Context $context
+     * @param JsonFactory $jsonFactory
+     * @param CollectionFactory $faqCollectionFactory
+     */
     public function __construct(
         Context $context,
         JsonFactory $jsonFactory,
@@ -22,6 +44,11 @@ class Getfaq extends Action
         $this->faqCollectionFactory = $faqCollectionFactory;
     }
 
+    /**
+     * Execute the controller action and retrieve the FAQs.
+     *
+     * @return \Magento\Framework\Controller\Result\Json
+     */
     public function execute()
     {
         $faqCollection = $this->faqCollectionFactory->create();

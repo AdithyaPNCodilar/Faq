@@ -2,7 +2,6 @@
 
 namespace Codilar\Faq\Controller\Adminhtml\Faq;
 
-
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
@@ -19,7 +18,7 @@ class save extends Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Codilar_Faq::entity';
+    public const ADMIN_RESOURCE = 'Codilar_Faq::entity';
 
     /**
      * @var FaqRepositoryInterface
@@ -47,8 +46,7 @@ class save extends Action
         FaqRepositoryInterface $faqRepository,
         PageFactory $resultPageFactory,
         SessionManagerInterface $sessionManager
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->faqRepository = $faqRepository;
         $this->resultPageFactory = $resultPageFactory;
@@ -57,14 +55,16 @@ class save extends Action
     
     /**
      * Save action
+     *
+     * @return \Magento\Framework\Controller\Result\Redirect
      */
     public function execute()
-    {   
+    {
         $resultRedirect = $this->resultRedirectFactory->create();
         $faq = $this->faqRepository->getNew();
         
         //retrieves the data submitted by the user in the form of an associative array
-        $data = $this->getRequest()->getPost(); 
+        $data = $this->getRequest()->getPost();
         
         try {
             if (!empty($data['id'])) {
@@ -78,13 +78,12 @@ class save extends Action
             $this->faqRepository->save($faq);
             
             //check for `back` parameter
-            if ($this->getRequest()->getParam('back')) { 
+            if ($this->getRequest()->getParam('back')) {
                 return $resultRedirect->setPath('*/*/edit', ['id' => $faq->getId(), '_current' => true, '_use_rewrite' => true]);
             }
 
             $this->messageManager->addSuccess(__('The FAQ has been saved.'));
-
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             $this->messageManager->addError(__($e->getMessage()));
         }
         

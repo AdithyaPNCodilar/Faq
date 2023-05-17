@@ -1,5 +1,7 @@
 <?php
+
 namespace Codilar\Faq\Model;
+
 use Codilar\Faq\Model\ResourceModel\Faq\CollectionFactory;
  
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
@@ -43,6 +45,5 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         }
 
         return $this->loadedData;
-
     }
 }

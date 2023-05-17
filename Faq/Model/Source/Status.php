@@ -1,4 +1,5 @@
 <?php
+
 namespace Codilar\Faq\Model\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;

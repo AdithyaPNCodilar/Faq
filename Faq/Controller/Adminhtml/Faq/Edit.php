@@ -1,9 +1,11 @@
 <?php
+
 /**
  *
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Codilar\Faq\Controller\Adminhtml\Faq;
 
 use Magento\Backend\App\Action;
@@ -18,7 +20,7 @@ class Edit extends Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Codilar_Faq::entity';
+    public const ADMIN_RESOURCE = 'Codilar_Faq::entity';
 
     /**
      * @var \Magento\Framework\Registry
@@ -53,15 +55,16 @@ class Edit extends Action
         $this->faqFactory = $faqFactory;
         $this->faqRepository = $faqRepository;
     }
-
+    /**
+     * Execute the controller action.
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         $id = $this->getRequest()->getParams('id');
-        
         $model = $this->faqFactory->create();
-
         if ($id) {
-           
             if (!$faq = $this->faqRepository->getById($id)) {
                 $this->messageManager->addError(__('This entity no longer exists.'));
                 return $this->_redirect('*/*/');

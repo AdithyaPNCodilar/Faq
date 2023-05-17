@@ -11,7 +11,7 @@ use Codilar\Faq\Model\ResourceModel\Faq;
 use Codilar\Faq\Model\ResourceModel\Faq\CollectionFactory;
 
 /**
- * Class 
+ * Class
  * @author Adithya
  */
 class FaqRepository implements FaqRepositoryInterface
@@ -41,13 +41,11 @@ class FaqRepository implements FaqRepositoryInterface
         FaqFactory $faqFactory,
         Faq $faqResource,
         CollectionFactory $faqCollectionFactory,
-       
         CollectionProcessorInterface $collectionProcessor
     ) {
         $this->faqFactory = $faqFactory;
         $this->faqResource = $faqResource;
         $this->faqCollectionFactory = $faqCollectionFactory;
-       
         $this->collectionProcessor = $collectionProcessor;
     }
 
@@ -58,7 +56,7 @@ class FaqRepository implements FaqRepositoryInterface
      */
     public function getById($id)
     {
-        $faq = $this->faqFactory->create();
+        $faq = $this->faqFactory->create(); // creates new instance
         $this->faqResource->load($faq, $id);
         if (!$faq->getId()) {
             throw new NoSuchEntityException(__('Unable to find vendor with ID "%1"', $id));
@@ -93,7 +91,6 @@ class FaqRepository implements FaqRepositoryInterface
         }
 
         return true;
-
     }
 
     /**
@@ -104,21 +101,19 @@ class FaqRepository implements FaqRepositoryInterface
      */
     public function getAllFaq($limit = null)
     {
-    $collection = $this->faqCollectionFactory->create();
+        $collection = $this->faqCollectionFactory->create();
 
-    if ($limit !== null) {
-        $collection->setPageSize($limit);
-    }
-    
-
-    return $collection->getItems();
+        if ($limit !== null) {
+            $collection->setPageSize($limit);
+        }
+        return $collection->getItems();
     }
 
-  /**
- * {@inheritdoc}
- */
-public function getNew()
-{
-    return $this->faqFactory->create();
-}
+    /**
+     * {@inheritdoc}
+     */
+    public function getNew()
+    {
+        return $this->faqFactory->create();
+    }
 }

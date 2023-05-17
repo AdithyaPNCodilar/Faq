@@ -4,6 +4,7 @@
 * @package magento2
 * @author Adithya P N
 */
+
 namespace Codilar\Faq\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
@@ -11,12 +12,12 @@ use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action {
+class Index extends Action
+{
     /**
      * @var PageFactory
      */
     private $pageFactory;
-
 
     /**
      * Index constructor.
@@ -26,8 +27,7 @@ class Index extends Action {
     public function __construct(
         Context $context,
         PageFactory $pageFactory
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->pageFactory = $pageFactory;
     }
