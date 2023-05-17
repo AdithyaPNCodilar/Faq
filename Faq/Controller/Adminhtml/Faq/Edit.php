@@ -12,8 +12,9 @@ use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 use Codilar\Faq\Api\FaqRepositoryInterface;
 use Codilar\Faq\Api\Data\FaqInterface;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Edit extends Action
+class Edit extends Action implements HttpGetActionInterface
 {
     /**
      * Authorization level of a basic admin session

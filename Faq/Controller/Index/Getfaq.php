@@ -6,6 +6,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Codilar\Faq\Model\ResourceModel\Faq\CollectionFactory;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
 /**
  * Class Getfaq
@@ -15,7 +16,7 @@ use Codilar\Faq\Model\ResourceModel\Faq\CollectionFactory;
  * @package Codilar\Faq\Controller\Index
  */
 
-class Getfaq extends Action
+class Getfaq extends Action implements HttpPostActionInterface
 {
     /**
      * @var JsonFactory

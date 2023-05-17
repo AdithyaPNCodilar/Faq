@@ -9,8 +9,9 @@ use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Delete extends Action
+class Delete extends Action implements HttpGetActionInterface
 {
     /**
      * Authorization level of a basic admin session

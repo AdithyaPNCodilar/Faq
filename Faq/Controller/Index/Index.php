@@ -11,8 +11,9 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends Action
+class Index extends Action implements HttpGetActionInterface
 {
     /**
      * @var PageFactory
@@ -31,7 +32,6 @@ class Index extends Action
         parent::__construct($context);
         $this->pageFactory = $pageFactory;
     }
-
 
     /**
      * Execute action based on request and return result

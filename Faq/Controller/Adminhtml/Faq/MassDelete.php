@@ -6,8 +6,9 @@ use Magento\Backend\App\Action;
 use Magento\Framework\Exception\LocalizedException;
 use Codilar\Faq\Api\FaqRepositoryInterface;
 use Codilar\Faq\Api\Data\FaqInterface;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
-class MassDelete extends Action
+class MassDelete extends Action implements HttpPostActionInterface
 {
     /**
      * @var FaqRepositoryInterface

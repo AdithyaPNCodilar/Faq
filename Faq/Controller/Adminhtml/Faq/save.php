@@ -9,8 +9,9 @@ use Magento\Framework\Session\SessionManagerInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Codilar\Faq\Api\FaqRepositoryInterface;
 use Codilar\Faq\Api\Data\FaqInterface;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
-class save extends Action
+class save extends Action implements HttpPostActionInterface
 {
 
     /**

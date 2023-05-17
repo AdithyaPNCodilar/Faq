@@ -5,6 +5,8 @@ namespace Codilar\Faq\Controller\Index;
 use Magento\Framework\App\Action\Context;
 use Codilar\Faq\Model\FaqFactory;
 use Magento\Customer\Model\Session;
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
 /**
  * Class Submit
@@ -13,7 +15,7 @@ use Magento\Customer\Model\Session;
  *
  * @package Codilar\Faq\Controller\Index
  */
-class Submit extends \Magento\Framework\App\Action\Action
+class Submit extends Action implements HttpPostActionInterface
 {
     /**
      * @var FaqFactory

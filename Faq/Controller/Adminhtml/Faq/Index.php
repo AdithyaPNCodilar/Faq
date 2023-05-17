@@ -22,8 +22,9 @@ namespace Codilar\Faq\Controller\Adminhtml\Faq;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Backend\App\Action;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends Action
+class Index extends Action implements HttpGetActionInterface
 {
     /**
      * @var PageFactory
