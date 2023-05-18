@@ -7,7 +7,8 @@ use Magento\Framework\Model\AbstractModel;
 
 /**
  * Class Faq
- * @package Codilar\Faq\Model
+ * This class represents a FAQ (Frequently Asked Questions) entity.
+ * It extends the AbstractModel class and implements the FaqInterface.
  */
 class Faq extends AbstractModel implements FaqInterface
 {
@@ -186,7 +187,7 @@ class Faq extends AbstractModel implements FaqInterface
     /**
      * Set Updation Timestamp
      *
-     * @param string $created_at
+     * @param string $updated_at
      * @return $this
      */
     public function setUpdatedAt($updated_at)

@@ -37,6 +37,14 @@ class FaqRepository implements FaqRepositoryInterface
      */
     private $collectionProcessor;
 
+    /**
+     * Class constructor.
+     *
+     * @param FaqFactory $faqFactory
+     * @param Faq $faqResource
+     * @param CollectionFactory $faqCollectionFactory
+     * @param CollectionProcessorInterface $collectionProcessor
+     */
     public function __construct(
         FaqFactory $faqFactory,
         Faq $faqResource,
@@ -50,6 +58,7 @@ class FaqRepository implements FaqRepositoryInterface
     }
 
     /**
+     *
      * @param int $id
      * @return \Codilar\Faq\Api\Data\FaqInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -65,6 +74,7 @@ class FaqRepository implements FaqRepositoryInterface
     }
 
     /**
+     *
      * @param \Codilar\Faq\Api\Data\FaqInterface $faq
      * @return \Codilar\Faq\Api\Data\FaqInterface
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -76,6 +86,7 @@ class FaqRepository implements FaqRepositoryInterface
     }
 
     /**
+     *
      * @param \Codilar\Faq\Api\Data\FaqInterface $faq
      * @return bool true on success
      * @throws \Magento\Framework\Exception\CouldNotDeleteException
@@ -96,6 +107,7 @@ class FaqRepository implements FaqRepositoryInterface
     /**
      * Retrieve all faq
      *
+     * @param int|null $limit
      * @return \Codilar\Faq\Api\Data\FaqInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -110,7 +122,7 @@ class FaqRepository implements FaqRepositoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getNew()
     {

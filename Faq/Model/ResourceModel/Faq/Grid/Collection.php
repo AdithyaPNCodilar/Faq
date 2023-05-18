@@ -8,7 +8,8 @@ use Codilar\Faq\Model\ResourceModel\Faq as FaqResourceModel;
 
 /**
  * Class Collection
- * @package Codilar\Faq\Model\ResourceModel\Faq\Grid
+ * This class represents a collection of FAQ entities.
+ * It extends the AbstractCollection class
  */
 class Collection extends AbstractCollection
 {

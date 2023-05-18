@@ -6,7 +6,6 @@ use Codilar\Faq\Api\Data\FaqInterface;
 
 /**
  * Interface FaqRepositoryInterface
- * @package Codilar\Faq\Api
  */
 interface FaqRepositoryInterface
 {

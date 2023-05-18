@@ -4,7 +4,6 @@ namespace Codilar\Faq\Api\Data;
 
 /**
  * Interface FaqInterface
- * @package Codilar\Faq\Api\Data
  */
 
 interface FaqInterface

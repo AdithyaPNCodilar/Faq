@@ -18,7 +18,7 @@ class Delete extends Action implements HttpGetActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Codilar_Faq::entity';
+    public const ADMIN_RESOURCE = 'Codilar_Faq::entity';
 
     /**
      * @var FaqRepositoryInterface

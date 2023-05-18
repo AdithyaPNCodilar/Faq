@@ -6,7 +6,8 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 /**
  * Class Faq
- * @package Codilar\Faq\Model\ResourceModel
+ * This class represents the resource model for the FAQ entity
+ * It extends the AbstractDb class
  */
 
 class Faq extends AbstractDb

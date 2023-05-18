@@ -11,7 +11,7 @@ use Codilar\Faq\Api\FaqRepositoryInterface;
 use Codilar\Faq\Api\Data\FaqInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 
-class save extends Action implements HttpPostActionInterface
+class Save extends Action implements HttpPostActionInterface
 {
 
     /**

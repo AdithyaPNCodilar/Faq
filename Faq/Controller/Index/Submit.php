@@ -13,7 +13,6 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
  *
  * This class represents a controller action for submitting an FAQ question.
  *
- * @package Codilar\Faq\Controller\Index
  */
 class Submit extends Action implements HttpPostActionInterface
 {

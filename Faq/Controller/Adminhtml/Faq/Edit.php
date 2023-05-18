@@ -32,7 +32,6 @@ class Edit extends Action implements HttpGetActionInterface
      */
     private $faqRepository;
 
-
     /**
      * @var \Codilar\Faq\Model\FaqFactory
      */
@@ -82,5 +81,4 @@ class Edit extends Action implements HttpGetActionInterface
 
         return $resultPage;
     }
-
 }

@@ -13,7 +13,6 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
  *
  * This class represents a controller action for retrieving FAQs.
  *
- * @package Codilar\Faq\Controller\Index
  */
 
 class Getfaq extends Action implements HttpPostActionInterface

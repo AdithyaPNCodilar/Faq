@@ -1,9 +1,9 @@
 <?php
+
 /**
-*
-* @package magento2
-* @author Adithya P N
-*/
+ * @package magento2
+ * @author Adithya P N
+ */
 
 namespace Codilar\Faq\Controller\Index;
 
