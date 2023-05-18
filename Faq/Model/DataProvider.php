@@ -7,6 +7,10 @@ use Codilar\Faq\Model\ResourceModel\Faq\CollectionFactory;
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     /**
+     * @var array
+     */
+    protected $loadedData;
+    /**
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName

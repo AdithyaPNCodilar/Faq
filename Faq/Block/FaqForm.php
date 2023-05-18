@@ -43,7 +43,6 @@ class FaqForm extends Template
     public function __construct(
         Template\Context $context,
         \Magento\Customer\Model\Session $customerSession,
-        // Session $customerSession,
         array $data = []
     ) {
         parent::__construct($context, $data);
