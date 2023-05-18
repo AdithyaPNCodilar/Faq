@@ -1,7 +1,6 @@
 <?php
 
 /**
- *
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
@@ -63,13 +62,16 @@ class Edit extends Action implements HttpGetActionInterface
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParams('id');
+        $id = $this->getRequest()->getParam('id');
         $model = $this->faqFactory->create();
+        
         if ($id) {
-            if (!$faq = $this->faqRepository->getById($id)) {
+            $faq = $this->faqRepository->getById($id);
+            if (!$faq) {
                 $this->messageManager->addError(__('This entity no longer exists.'));
                 return $this->_redirect('*/*/');
             }
+            $model = $faq;
         }
 
         $this->coreRegistry->register('faq_data', $model);
@@ -80,4 +82,5 @@ class Edit extends Action implements HttpGetActionInterface
 
         return $resultPage;
     }
+
 }
