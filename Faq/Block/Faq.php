@@ -50,9 +50,13 @@ class Faq extends Template
      */
     public function getFaqData()
     {
-        $this->faqCollection->addFieldToFilter('status', 'approved'); // Fetch only approved FAQs
-        return json_encode([
+        $faqCollection = $this->faqCollectionFactory->create();
+        $this->faqCollection->addFieldToFilter('status', 'approved');
+        $this->$faqCollection->addFieldToFilter('product_id', $productId);
+        return json_encode(
+            [
             'items' => $this->faqCollection->getData(),
-        ]);
+            ]
+        );
     }
 }

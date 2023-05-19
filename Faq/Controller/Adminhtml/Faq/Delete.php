@@ -48,7 +48,9 @@ class Delete extends Action implements HttpGetActionInterface
     {
         $id = $this->getRequest()->getParam('id');
 
-        /** @var Redirect $resultRedirect */
+        /** 
+         * @var Redirect $resultRedirect 
+         * */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
@@ -60,7 +62,11 @@ class Delete extends Action implements HttpGetActionInterface
                 return $resultRedirect->setPath('*/*/');
             } catch (NoSuchEntityException $e) {
                 // display error message
-                $this->messageManager->addError(__('We can\'t find the entity to delete.'));
+                $this->messageManager->addError(
+                    __(
+                        'We can\'t find the entity to delete.'
+                    )
+                );
                 // go to grid
                 return $resultRedirect->setPath('*/*/');
             } catch (CouldNotDeleteException $e) {

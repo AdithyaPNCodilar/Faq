@@ -1,4 +1,5 @@
-<div id="codliar-knockout-faq" data-bind="scope:'codilar-ko-faq'">
+<?php $product_id = $block->getRequest()->getParam('id'); ?>
+<div id="codliar-knockout-faq" data-bind="scope:'codilar-ko-faq'" data-id="<?= $product_id ?>">
 <!-- ko template: getTemplate() --><!-- /ko -->
 <script type="text/x-magento-init">
 {
