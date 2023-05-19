@@ -11,13 +11,3 @@
         </referenceBlock>
     </body>
 </page>
-
-<!-- <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceContainer name="product.info.main">
-            <block class="Codilar\Faq\Block\FaqForm" name="faq_form" template="Codilar_Faq::product/faq_form.phtml" />
-        </referenceContainer>
-    </body>
-</page> -->
-<!-- <block class="Magento\Framework\View\Element\Template" name="faq" template="Codilar_Faq::faq.phtml"/> -->

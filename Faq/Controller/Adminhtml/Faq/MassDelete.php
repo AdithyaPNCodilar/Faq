@@ -45,11 +45,17 @@ class MassDelete extends Action implements HttpPostActionInterface
                     $faq = $this->faqRepository->getById($id);
                     $this->faqRepository->delete($faq);
                 }
-                $this->messageManager->addSuccess(__('Total of %1 fqa(s) have been deleted.', count($ids)));
+                $this->messageManager->addSuccess(
+                    __('Total of %1 fqa(s) have been deleted.', count($ids))
+                );
             } catch (LocalizedException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addError(__('We can\'t delete the faq(s) right now. Please review the log and try again.'));
+                $this->messageManager->addError(
+                    __(
+                        'We can\'t delete the faq(s) right now. Please review the log and try again.'
+                    )
+                );
                 $this->logger->critical($e);
             }
         }

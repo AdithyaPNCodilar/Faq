@@ -1,6 +1,6 @@
 <form action="<?= $block->getUrl('faq/index/submit') ?>" method="post">
     <input type="hidden" id="product_id" name="product_id" value="<?= $block->getProduct()->getId();?>">
-    <label for="question"><b>Ask Question<b></label>
+    <label for="question"><b>Ask Questions<b></label>
     <textarea name="question" id="question" rows="3"></textarea>
     <input type="hidden" id="status" name="status" value="pending">
     <button type="submit">Submit</button>

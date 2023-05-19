@@ -68,7 +68,11 @@ class Submit extends Action implements HttpPostActionInterface
         $faq->setData('customer_id', $this->customerSession->getCustomerId());
 
         $faq->save();
-        $this->messageManager->addSuccess(__('FAQ question submitted successfully!'));
-        return $this->resultRedirectFactory->create()->setUrl($this->_redirect->getRefererUrl());
+        $this->messageManager->addSuccess(
+            __('FAQ question submitted successfully!')
+        );
+        return $this->resultRedirectFactory->create()->setUrl(
+            $this->_redirect->getRefererUrl()
+        );
     }
 }

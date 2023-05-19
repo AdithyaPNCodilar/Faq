@@ -51,8 +51,6 @@ class Faq extends Template
     public function getFaqData()
     {
         $faqCollection = $this->faqCollectionFactory->create();
-        $this->faqCollection->addFieldToFilter('status', 'approved');
-        $this->$faqCollection->addFieldToFilter('product_id', $productId);
         return json_encode(
             [
             'items' => $this->faqCollection->getData(),

@@ -48,8 +48,8 @@ class Delete extends Action implements HttpGetActionInterface
     {
         $id = $this->getRequest()->getParam('id');
 
-        /** 
-         * @var Redirect $resultRedirect 
+        /**
+         * @var Redirect $resultRedirect
          * */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
