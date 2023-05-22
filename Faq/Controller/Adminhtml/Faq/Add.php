@@ -8,7 +8,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Add extends Action implements HttpGetActionInterface
 {
-    // const ADMIN_RESOURCE = 'Vendor_YourModule::your_resource';
 
     /**
      * @var PageFactory

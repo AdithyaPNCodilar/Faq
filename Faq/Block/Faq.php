@@ -14,6 +14,7 @@
 namespace Codilar\Faq\Block;
 
 use Magento\Framework\View\Element\Template;
+use Codilar\Faq\Api\FaqRepositoryInterface;
 
 /**
  * Class Faq
@@ -23,24 +24,24 @@ use Magento\Framework\View\Element\Template;
 class Faq extends Template
 {
     /**
-     * @var \Codilar\Faq\Model\ResourceModel\Faq\Collection
+     * @var FaqRepositoryInterface
      */
-    protected $faqCollection;
+    protected $faqRepository;
 
     /**
      * Faq constructor.
      *
      * @param Template\Context $context
-     * @param \Codilar\Faq\Model\ResourceModel\Faq\Collection $faqCollection
+     * @param FaqRepositoryInterface $faqRepository
      * @param array $data
      */
     public function __construct(
         Template\Context $context,
-        \Codilar\Faq\Model\ResourceModel\Faq\Collection $faqCollection,
+        FaqRepositoryInterface $faqRepository,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->faqCollection = $faqCollection;
+        $this->faqRepository = $faqRepository;
     }
 
     /**
@@ -50,10 +51,10 @@ class Faq extends Template
      */
     public function getFaqData()
     {
-        $faqCollection = $this->faqCollectionFactory->create();
+        $faqCollection = $this->faqRepository->getList();
         return json_encode(
             [
-            'items' => $this->faqCollection->getData(),
+            'items' => $faqCollection->getData(),
             ]
         );
     }

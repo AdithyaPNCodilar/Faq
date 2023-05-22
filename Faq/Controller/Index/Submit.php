@@ -3,7 +3,8 @@
 namespace Codilar\Faq\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
-use Codilar\Faq\Model\FaqFactory;
+use Codilar\Faq\Api\FaqRepositoryInterface;
+use Codilar\Faq\Api\Data\FaqInterfaceFactory;
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\HttpPostActionInterface;
@@ -17,9 +18,14 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
 class Submit extends Action implements HttpPostActionInterface
 {
     /**
-     * @var FaqFactory
+     * @var FaqRepositoryInterface
      */
-    protected $_faqFactory;
+    protected $faqRepository;
+
+    /**
+     * @var FaqInterfaceFactory
+     */
+    protected $faqFactory;
 
     /**
      * @var \Magento\Framework\Controller\Result\Redirect
@@ -35,18 +41,21 @@ class Submit extends Action implements HttpPostActionInterface
      * Submit constructor.
      *
      * @param Context $context
-     * @param FaqFactory $faqFactory
+     * @param FaqRepositoryInterface $faqRepository
+     * @param FaqInterfaceFactory $faqFactory
      * @param \Magento\Framework\Controller\Result\Redirect $resultRedirect
      * @param Session $customerSession
      */
     public function __construct(
         Context $context,
-        FaqFactory $faqFactory,
+        FaqRepositoryInterface $faqRepository,
+        FaqInterfaceFactory $faqFactory,
         \Magento\Framework\Controller\Result\Redirect $resultRedirect,
         Session $customerSession
     ) {
         parent::__construct($context);
-        $this->_faqFactory = $faqFactory;
+        $this->faqRepository = $faqRepository;
+        $this->faqFactory = $faqFactory;
         $this->resultRedirect = $resultRedirect;
         $this->customerSession = $customerSession;
     }
@@ -59,20 +68,22 @@ class Submit extends Action implements HttpPostActionInterface
     public function execute()
     {
         $postData = $this->getRequest()->getPostValue();
-        $faq = $this->_faqFactory->create();
-        $faq->setQuestion($postData['question']);
-        $faq->setStatus($postData['status']);
+        $faqData = [
+            'question' => $postData['question'],
+            'status' => $postData['status'],
+            'product_id' => $postData['product_id'],
+            'customer_id' => $this->customerSession->getCustomerId()
+        ];
 
-        // Set the product_id and customer_id
-        $faq->setData('product_id', $postData['product_id']);
-        $faq->setData('customer_id', $this->customerSession->getCustomerId());
+        try {
+            $faq = $this->faqFactory->create();
+            $faq->setData($faqData);
+            $this->faqRepository->save($faq);
+            $this->messageManager->addSuccess(__('FAQ question submitted successfully!'));
+        } catch (\Exception $e) {
+            $this->messageManager->addError(__('An error occurred while submitting the FAQ question.'));
+        }
 
-        $faq->save();
-        $this->messageManager->addSuccess(
-            __('FAQ question submitted successfully!')
-        );
-        return $this->resultRedirectFactory->create()->setUrl(
-            $this->_redirect->getRefererUrl()
-        );
+        return $this->resultRedirectFactory->create()->setUrl($this->_redirect->getRefererUrl());
     }
 }

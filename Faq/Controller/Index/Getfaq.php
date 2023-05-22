@@ -53,7 +53,7 @@ class Getfaq extends Action implements HttpPostActionInterface
     }
 
     /**
-     * Execute the controller action and retrieve the FAQs for the specified product ID.
+     * Execute the controller action retrieve the FAQs for the specified product ID.
      *
      * @return \Magento\Framework\Controller\Result\Json
      */

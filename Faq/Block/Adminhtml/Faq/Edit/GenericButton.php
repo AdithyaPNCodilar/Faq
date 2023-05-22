@@ -8,7 +8,6 @@
 namespace Codilar\Faq\Block\Adminhtml\Faq\Edit;
 
 use Magento\Backend\Block\Widget\Context;
-use Magento\Framework\Registry;
 
 /**
  * Class GenericButton
@@ -29,43 +28,29 @@ class GenericButton
     protected $urlBuilder;
 
     /**
-     * The Registry class provides a way to store and retrieve
-     * data globally during a single request.
-     *
-     * @var \Magento\Framework\Registry
-     */
-    protected $registry;
-
-    /**
      * Constructor
      *
      * @param \Magento\Backend\Block\Widget\Context $context
-     * @param \Magento\Framework\Registry $registry
      */
     public function __construct(
-        Context $context,
-        Registry $registry
+        Context $context
     ) {
         $this->context = $context;
         $this->urlBuilder = $this->context->getUrlBuilder();
-        $this->registry = $registry;
     }
 
     /**
-     * Return the synonyms group Id.
+     * Return the entity ID.
      *
      * @return int|null
      */
     public function getId()
     {
-        $entityId = null;
-        $entityId =  $this->context->getRequest()->getParam('id');
-        
-        return $entityId;
+        return $this->context->getRequest()->getParam('id');
     }
 
     /**
-     * Generate url by route and parameters
+     * Generate URL by route and parameters
      *
      * @param  string $route
      * @param  array $params
