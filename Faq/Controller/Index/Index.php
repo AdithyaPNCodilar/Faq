@@ -44,7 +44,5 @@ class Index extends Action implements HttpGetActionInterface
     public function execute()
     {
         return $this->$pageFactory->create();
-        // $page = $this->pageFactory->create();
-        // return $page;
     }
 }

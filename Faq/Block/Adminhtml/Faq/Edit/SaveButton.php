@@ -14,6 +14,7 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
  * Class SaveButton
  * It extends the GenericButton class
  */
+
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {
     /**

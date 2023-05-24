@@ -17,7 +17,7 @@
             </item>
         </item>
     </argument>
-    <dataSource name="nameOfDataSource">
+    <dataSource name="faqtable_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">faqtable_listing_data_source</argument>
