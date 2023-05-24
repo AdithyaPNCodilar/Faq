@@ -157,6 +157,7 @@
                 </item>
             </argument>
         </field>
+        
         <field name="updated_at">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

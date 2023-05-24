@@ -14,7 +14,6 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
  * This class represents a controller action for retrieving FAQs.
  *
  */
-
 class Getfaq extends Action implements HttpPostActionInterface
 {
     /**
@@ -64,7 +63,14 @@ class Getfaq extends Action implements HttpPostActionInterface
         try {
             $product = $this->productRepository->getById($productId);
         } catch (\Exception $e) {
-            return $this->jsonFactory->create()->setData([]);
+            $result = $this->jsonFactory->create();
+            $result->setData(
+                [
+                'error' => true,
+                'message' => $e->getMessage()
+                ]
+            );
+            return $result;
         }
 
         $faqCollection = $this->faqCollectionFactory->create();

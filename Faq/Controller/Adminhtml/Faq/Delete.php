@@ -47,43 +47,32 @@ class Delete extends Action implements HttpGetActionInterface
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
-
-        /**
-         * @var Redirect $resultRedirect
-         * */
         $resultRedirect = $this->resultRedirectFactory->create();
-        if ($id) {
-            try {
+
+        try {
+            if ($id) {
                 $faq = $this->faqRepository->getById($id);
                 $this->faqRepository->delete($faq);
-                // display success message
-                $this->messageManager->addSuccess(__('Entity has been deleted.'));
-                // go to grid
-                return $resultRedirect->setPath('*/*/');
-            } catch (NoSuchEntityException $e) {
-                // display error message
-                $this->messageManager->addError(
-                    __(
-                        'We can\'t find the entity to delete.'
-                    )
+                $this->messageManager->addSuccess(
+                    __('Entity has been deleted.')
                 );
-                // go to grid
                 return $resultRedirect->setPath('*/*/');
-            } catch (CouldNotDeleteException $e) {
-                // display error message
-                $this->messageManager->addError($e->getMessage());
-                // go back to edit form
-                return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
-            } catch (LocalizedException $e) {
-                // display error message
-                $this->messageManager->addError($e->getMessage());
-                // go to grid
-                return $resultRedirect->setPath('*/*/');
+            } else {
+                $this->messageManager->addError(
+                    __('We can\'t find the entity to delete.')
+                );
             }
+        } catch (NoSuchEntityException $e) {
+            $this->messageManager->addError(
+                __('We can\'t find the entity to delete.')
+            );
+        } catch (CouldNotDeleteException $e) {
+            $this->messageManager->addError($e->getMessage());
+            return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
+        } catch (LocalizedException $e) {
+            $this->messageManager->addError($e->getMessage());
         }
-        // display error message
-        $this->messageManager->addError(__('We can\'t find the entity to delete.'));
-        // go to grid
+
         return $resultRedirect->setPath('*/*/');
     }
 }

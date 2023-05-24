@@ -8,11 +8,11 @@
         <arguments>
             <argument name="collections" xsi:type="array">
             	<!-- Data Source will be mentioned in listing xml -->
-                <item name="faqtable_listing_data_source" xsi:type="string">Codilar\Faq\Model\ResourceModel\Faq\Grid\Collection</item>
+                <item name="faqtable_listing_data_source" xsi:type="string">Codilar\Faq\Model\ResourceModel\Faq\Collection</item>
             </argument>
         </arguments>
     </type>
-    <virtualType name="Codilar\Faq\Model\ResourceModel\Faq\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Codilar\Faq\Model\ResourceModel\Faq\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
         	<!-- Table name to insert data and listing data -->
             <argument name="mainTable" xsi:type="string">faq_table</argument>
