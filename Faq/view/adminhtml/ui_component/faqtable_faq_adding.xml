@@ -19,11 +19,7 @@
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
         <item name="buttons" xsi:type="array">
-            <!-- <item name="back" xsi:type="string">Vendor\Modulename\Block\Adminhtml\Entity\Edit\BackButton</item>
-            <item name="reset" xsi:type="string">Vendor\Modulename\Block\Adminhtml\Entity\Edit\ResetButton</item>
-            <item name="delete" xsi:type="string">Vendor\Modulename\Block\Adminhtml\Entity\Edit\DeleteButton</item> -->
             <item name="save" xsi:type="string">Codilar\Faq\Block\Adminhtml\Faq\Edit\SaveButton</item>          
-            <!-- <item name="save_and_continue" xsi:type="string">Vendor\Modulename\Block\Adminhtml\Entity\Edit\SaveAndContinueButton</item> -->    
         </item>
     </argument>
 
