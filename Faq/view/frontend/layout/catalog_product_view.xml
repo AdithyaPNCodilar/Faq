@@ -7,7 +7,7 @@
         </referenceContainer>
         <move element="faq_form" destination="faq_form_container" />
         <referenceBlock name="content">
-                <block class="Codilar\Faq\Block\Faq" name="faq" template="Codilar_Faq::faq.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="faq" template="Codilar_Faq::faq.phtml"/>
         </referenceBlock>
     </body>
 </page>
